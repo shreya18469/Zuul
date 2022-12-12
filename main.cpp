@@ -6,6 +6,8 @@
 using namespace std;
 
 void pickObject(Room* room, vector <Objects*>* inventory){
+  char object[100]'
+  cout << "What object do you want to pick up?"
 }
 void dropObject(Room* room, vector <Objects*>* inventory){
 }
@@ -34,6 +36,7 @@ void roomDetail(Room* room, vector <Objects*>* inventory){
   } if (room->getSouth() != NULL){
     cout << "South " << endl;
   }
+  cout << "Which exit do you want to take?" << endl;
 }
 int main(){
   Room* office = new Room();
@@ -67,7 +70,7 @@ int main(){
   Room* CAD = new Room();
   CAD->setType("CAD");
   Room* art = new Room();
-  art->setType("Art");
+  art->setType("Art room");
   art->addObject("paintbrush");
   Room* dance = new Room();
   dance>setType("Dance");
@@ -106,6 +109,54 @@ int main(){
   dance->setEast(art);
 
   vector <Objects*>* inventory = new vector <Objects*>();
-  
+  bool running = true;
+
+  cout << "Welcome to Zuul. The commands you can enter are NORTH, SOUTH, EAST, WEST, PICK, DROP, and QUIT. The game starts now. To win, you must be carrying all the items and stand in a particular room."
+
+    Room* curRoom = office;
+  char response[10];
+  cin >> response;
+  while(strcmp("QUIT". response) != 0){
+    if (strmp(response, north) == 0 && curRoom->getNorth != NULL){
+      cout << "Exiting north" << endl;
+      curRoom = curRoom->getNorth();
+      if (strcmp("Art room", currentRoom->getType()) == 0 && inventory->size() == 5){
+	cout << "You win! Good job." << endl;
+	return 0;
+      }
+      roomDetail(curRoom, inventory);
+      cin >> response;
+    }
+    else if (strcmp(response, south) == 0 && curRoom->getSouth() != NULL){
+      cout << "Exiting south" << endl;
+      curRoom = curRoom->getSouth();
+      if (strcmp("Art room", currentRoom->getType()) == 0 && inventory->size() == 5){
+	cout << "You win! Good job." << endl;
+	return 0;
+      }
+      roomDetail(curRoom, inventory);
+      cin >> response;
+    }
+    else if (strcmp(response, east) == 0 && curRoom->getEast() != NULL){
+      cout << "Exiting east" << endl;
+      curRoom = curRoom->getEast();
+      if (strcmp("Art room", currentRoom->getType()) == 0 && inventory->size() == 5){
+        cout << "You win! Good job." << endl;
+        return 0;
+      }
+      roomDetail(curRoom, inventory);
+      cin >> response;
+    }
+     else if (strcmp(response, west) == 0 && curRoom->getWest() != NULL){
+      cout << "Exiting west" << endl;
+      curRoom = curRoom->getWest();
+      if (strcmp("Art room", currentRoom->getType()) == 0 && inventory->size() == 5){
+        cout << "You win! Good job." << endl;
+        return 0;
+      }
+      roomDetail(curRoom, inventory);
+      cin >> response;
+    }
+  }
   return 0;
 }
