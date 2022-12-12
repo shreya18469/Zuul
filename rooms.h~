@@ -5,15 +5,6 @@
 
 using namespace std;
 
-class Objects{
- public:
-  void setObject(char o[]);
-  char* getObject();
- private:
-  char object[100];
-
-}
-
 class Room{
  public:
   Room();
@@ -28,7 +19,6 @@ class Room{
   void setNorth(Room*, room);
   void setSouth(Room*, room);
  private:
-  vector <Objects*>* objectlist;
   char type[100];
   map<int, Room*>* exits;
 };
