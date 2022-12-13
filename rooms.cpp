@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Objects::setObjects(char o[]){
+void Objects::setObject(char o[]){
   strcpy(object, o);
 }
 char* Objects::getObject(){
@@ -67,22 +67,22 @@ Room* Room::getSouth(){
   }
 }
 
-vector <Objects*>* Room::getObjectList(){
+vector <Objects*>* Room::getObjectlist(){
   return objectlist;
 }
 
 Room::Room(){
-  objectList = new vector<Objects*>();
+  objectlist = new vector<Objects*>();
   exits = new map<int, Room*>();
 }
 void Room::addObject(char ob[]){
   Objects* o = new Objects();
   o->setObject(ob);
 
-  if (objectList == NULL){
+  if (objectlist == NULL){
     cout << "No object list" << endl;
   }
-  objectList->push_back(o);
+  objectlist->push_back(o);
 }
 
 Objects* Room::deleteObject(char ob[]){
@@ -91,7 +91,7 @@ Objects* Room::deleteObject(char ob[]){
   cout << "What do you want to pick up?" << endl;
   cin >> item;
   for (int i = 0; i < objectlist->size();i++){
-    Objects* o = (*objectList)[i];
+    Objects* o = (*objectlist)[i];
     if (strcmp(o->getObject(), item) == 0){
       index = i;
       break;
