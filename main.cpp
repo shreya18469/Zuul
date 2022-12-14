@@ -151,8 +151,8 @@ int main(){
   auditorium->setEast(gym);
   gym->setWest(auditorium);
   gym->setEast(history);
-  gym->setSouth(bathroom);
-  gym->setNorth(cafeteria);
+  gym->setNorth(bathroom);
+  gym->setSouth(cafeteria);
   bathroom->setSouth(gym);
   history->setWest(gym);
   history->setEast(math);
