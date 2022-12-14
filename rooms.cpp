@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//getters and setters for objects and exits
 void Objects::setObject(char o[]){
   strcpy(object, o);
 }

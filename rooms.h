@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Objects{
+class Objects{ //object class
  public:
   void setObject(char o[]);
   char* getObject();
@@ -14,8 +14,9 @@ class Objects{
 
 };
 
-class Room{
+class Room{ //room class
  public:
+  //rooms, objects, and exits
   Room();
   void addObject(char ob[]);
   Objects* deleteObject(char ob[]);
@@ -31,6 +32,7 @@ class Room{
   void setNorth(Room* room);
   void setSouth(Room* room);
  private:
+  //map, objects, room name
   vector <Objects*>* objectlist;
   char type[100];
   map<int, Room*>* exits;
